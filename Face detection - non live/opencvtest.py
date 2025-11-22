@@ -3,8 +3,8 @@ import os
 
 def detect_faces_batch(input_folder, output_folder):
 
-    profile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_profileface.xml')
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    profile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_profileface.xml")
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
     if not os.path.exists(input_folder):
         print(f"Error: The folder '{input_folder}' does not exist.")
@@ -12,10 +12,8 @@ def detect_faces_batch(input_folder, output_folder):
 
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
-
-    print(f"Starting processing on '{input_folder}'...")
     
-    image_files = [f for f in os.listdir(input_folder) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    image_files = [f for f in os.listdir(input_folder) if f.lower().endswith((".png", ".jpg", ".jpeg"))]
 
     if not image_files:
         print("No image files found.")
