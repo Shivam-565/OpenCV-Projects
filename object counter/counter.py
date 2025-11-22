@@ -26,8 +26,6 @@ def count_red_objects(image_path):
     count = 0
     output_img = img.copy()
 
-    print(f"Found {len(contours)} potential objects...")
-
     for contour in contours:
         area = cv2.contourArea(contour)
         if area > 500:
@@ -39,7 +37,7 @@ def count_red_objects(image_path):
             cv2.putText(output_img, f"Red Object {count}", (x, y - 10), 
                         cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
 
-    print(f"Final Count: {count} Red Objects detected.")
+    print(f"Final Count: {count}")
 
     mask_bgr = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
     stacked = np.hstack((output_img, mask_bgr))
